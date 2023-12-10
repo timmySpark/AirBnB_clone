@@ -72,5 +72,5 @@ Provide guidelines on how others can contribute to your project. You could also 
 
 - **Timmy Spark** - Developer - [GithubProfile](https://github.com/timmySpark)
 
-- **Simo Khanyi** - Developer - [YourGithubProfile](https://github.com/yourusername)
+- **Simo Khanyi** - Developer - [GithubProfile](https://github.com/simokhanyi)
 
