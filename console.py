@@ -153,8 +153,8 @@ class HBNBCommand(cmd.Cmd):
                     if obj.__class__.__name__ == class_name:
                         obj_list.append(str(obj))
                 print(obj_list)
-                else:
-                    print("** class doesn't exist **")
+            else:
+                print("** class doesn't exist **")
 
     def do_show(self, arg):
         '''
