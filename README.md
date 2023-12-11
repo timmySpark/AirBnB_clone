@@ -52,7 +52,7 @@ Examples
 These are specific instructions and codes required to run the unit tests :-
 
 ```
-Examples
+python3 -m unittest discover tests
 ```
 
 
