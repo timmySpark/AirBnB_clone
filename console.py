@@ -62,13 +62,13 @@ class HBNBCommand(cmd.Cmd):
         '''
         if not arg:
             print('** class name missing **')
-        if arg not in HBNBCommand.class_list:
+        elif arg not in HBNBCommand.class_list:
             print("** class doesn't exist **")
-
-        new_instance = eval(f"{arg}()")
-        new_instance.save()
-        HBNBCommand.class_dict[new_instance.id] = arg
-        print(new_instance.id)
+        else:
+            new_instance = eval(f"{arg}()")
+            new_instance.save()
+            HBNBCommand.class_dict[new_instance.id] = arg
+            print(new_instance.id)
 
     def do_show(self, arg):
         '''
@@ -84,7 +84,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
             return
         if len(argv) < 2:
-            print('** instance id missing')
+            print('** instance id missing **')
             return
         cls_id = argv[1]
         if (cls_id in HBNBCommand.class_dict.keys() and
@@ -123,7 +123,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
             return
         if len(argv) < 2:
-            print('** instance id missing')
+            print('** instance id missing **')
             return
         cls_id = argv[1]
         if (cls_id in HBNBCommand.class_dict.keys() and
