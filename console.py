@@ -70,30 +70,6 @@ class HBNBCommand(cmd.Cmd):
             HBNBCommand.class_dict[new_instance.id] = arg
             print(new_instance.id)
 
-    def do_show(self, arg):
-        '''
-            Prints the string representation of an instance
-            based on the class name and id
-        '''
-        if not arg:
-            print('** class name missing **')
-            return
-        argv = split(arg)
-        cls_name = argv[0]
-        if cls_name not in HBNBCommand.class_list:
-            print("** class doesn't exist **")
-            return
-        if len(argv) < 2:
-            print('** instance id missing **')
-            return
-        cls_id = argv[1]
-        if (cls_id in HBNBCommand.class_dict.keys() and
-                HBNBCommand.class_dict[cls_id] == class_name):
-            key = f"{class_name}.{cls_id}"
-            print(f"{HBNBCommand.class_obj[key]}")
-        else:
-            print("** no instance found **")
-
     def do_count(self, arg):
         '''
             Retrieve the number of instances of a class:
@@ -131,6 +107,7 @@ class HBNBCommand(cmd.Cmd):
             key = f"{cls_name}.{cls_id}"
             del class_object[key]
             del HBNBCommand.class_dict[cls_id]
+            storage.save()
         else:
             print("** no instance found **")
 
@@ -170,7 +147,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
             return
         if len(argv) < 2:
-            print('** instance id missing')
+            print('** instance id missing **')
             return
         cls_id = argv[1]
         if (cls_id in HBNBCommand.class_dict.keys() and
